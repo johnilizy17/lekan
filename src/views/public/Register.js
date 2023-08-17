@@ -26,7 +26,6 @@ const Register = () => {
       username: "example@123",
       password: "admin@123",
     },
-    validate: resetPasswordValidation,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
