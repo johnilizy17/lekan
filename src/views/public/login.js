@@ -46,7 +46,7 @@ const Login = () => {
           </div>
           {/*  */}
           <form onSubmit={formik.handleSubmit} className="py-1">
-            <div className="textbox flex flex-col items-center gap-6">
+            <div className="textbox lg:flex flex-col items-center gap-6">
               <input
                 {...formik.getFieldProps("username")}
                 className={styles.textbox}
