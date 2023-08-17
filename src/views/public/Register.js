@@ -30,7 +30,7 @@ const Register = () => {
     validateOnChange: false,
     onSubmit: async (values) => {
 
-      navigate("/login")
+      navigate("/")
       values = await Object.assign(values, { profile: file || "" });
       console.log(values);
     },
