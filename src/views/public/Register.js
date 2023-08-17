@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Router, useNavigate } from "react-router-dom";
 
 // ** Image
 import logo from "../../assets/logo.png";
@@ -19,6 +19,7 @@ import { convertToBase64 } from "../../helpers/convert";
 
 const Register = () => {
   const [file, setFile] = useState("");
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "abioduncsc@gmail.com",
@@ -29,6 +30,8 @@ const Register = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
+
+      navigate("/login")
       values = await Object.assign(values, { profile: file || "" });
       console.log(values);
     },

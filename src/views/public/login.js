@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // ** Image
 import logo from "../../assets/logo.png";
@@ -15,6 +15,8 @@ import { useFormik } from "formik";
 import { usernameValidate } from "../../helpers/validate";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -23,6 +25,7 @@ const Login = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
+      navigate("/profile")
       console.log(values);
     },
   });
@@ -52,7 +55,7 @@ const Login = () => {
               />
 
               <input
-                {...formik.getFieldProps("username")}
+                {...formik.getFieldProps("password")}
                 className={styles.textbox}
                 type="password"
                 placeholder="Password"
