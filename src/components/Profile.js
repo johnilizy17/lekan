@@ -75,8 +75,8 @@ const Profile = () => {
               />
             </div>
 
-            <div className="textbox lg:flex flex-col items-center gap-6 ">
-              <div className="name flex w-3/4 gap-10">
+            <div className="textbox flex flex-col items-center gap-6 ">
+              <div className="name flex lg:w-3/4 gap-10">
                 <input
                   {...formik.getFieldProps('firstName')}
                   className={styles.textbox}
@@ -90,7 +90,7 @@ const Profile = () => {
                   placeholder="LastName"
                 />
               </div>
-              <div className="name lg:flex w-3/4 gap-10">
+              <div className="name flex lg:w-3/4 gap-10">
                 <input
                   {...formik.getFieldProps('mobile')}
                   className={styles.textbox}
