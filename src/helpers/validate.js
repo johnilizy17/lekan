@@ -32,7 +32,7 @@ function passwordVerify(errors = {}, values) {
 export async function resetPasswordValidation(values) {
   const errors = passwordVerify({}, values);
 
-  if (values.password !== values.confirm_pwd) {
+  if (values.password !== values.confirm_password) {
     errors.exist = toast.error('Password does not match...!');
   }
 
@@ -66,10 +66,10 @@ export async function usernameValidate(values) {
 
 /** Validate Username  */
 function usernameVerify(error = {}, values) {
-  if (!values.username) {
-    error.username = toast.error('Username is required...!');
+  if (!values.email) {
+    error.username = toast.error('Email is required...!');
   } else if (values.username.includes(' ')) {
-    error.username = toast.error('Invalid Username...!');
+    error.username = toast.error('Invalid Email...!');
   }
   return error;
 }

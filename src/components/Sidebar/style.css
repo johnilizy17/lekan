@@ -1,0 +1,63 @@
+.sidebar {
+  background-color: #ffffff;
+  border-color: #f2f2f2;
+  border-right-style: solid;
+  border-right-width: 1px;
+  height: 1024px;
+  position: relative;
+  width: 320px;
+}
+
+.sidebar .text-wrapper {
+  color: #000000;
+  font-family: "Plus Jakarta Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  left: 100px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 39px;
+}
+
+.sidebar .frame {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+  left: 24px;
+  position: absolute;
+  top: 131px;
+}
+
+.sidebar .icon-instance-node {
+  height: 24px !important;
+  position: relative !important;
+  width: 24px !important;
+}
+
+.sidebar .div {
+  align-items: center;
+  background-color: #fff3f3;
+  border-radius: 8px;
+  display: flex;
+  gap: 16px;
+  height: 56px;
+  justify-content: center;
+  left: 24px;
+  padding: 8px;
+  position: absolute;
+  top: 907px;
+  width: 272px;
+}
+
+.sidebar .text-wrapper-2 {
+  color: #cb1010;
+  font-family: "Plus Jakarta Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}

@@ -8,6 +8,8 @@ import Recovery from "./components/Recovery";
 import Profile from "./components/Profile";
 import Password from "./components/Password";
 import PageNotFound from "./components/PageNotFound";
+import Dashboard from "./components/Dashboard";
+import Attendance from "./components/Attendance";
 
 // ** root router ** //
 const router = createBrowserRouter([
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile></Profile>,
+  },
+  {
+    path: "/attendance",
+    element: <Attendance/>,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard/>,
   },
   {
     path: "/recovery",

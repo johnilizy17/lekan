@@ -1,32 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-// ** Image
 import logo from "../../assets/logo.png";
-
-// ** Styles
 import styles from "../../styles/Username.module.css";
-
-// ** Third Party
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
-
-// ** Components
 import { usernameValidate } from "../../helpers/validate";
+import { LoginUser } from "../../services/user-services";
+import { Spinner, useToast } from "@chakra-ui/react";
 
 const Login = () => {
-  const navigate = useNavigate();
 
+  const toast = useToast()
+  const [loading, setLoading] = useState(false)
+  const navigation = useNavigate()
   const formik = useFormik({
     initialValues: {
-      username: "",
+      password: "",
+      email: ""
     },
-    validate: usernameValidate,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
-      navigate("/profile")
-      console.log(values);
+      setLoading(true)
+      try {
+        const login = await LoginUser(values)
+         localStorage.setItem("token",login.data.access_token);
+        toast({ position: "top-right", title: "Login Successful", description: 'You have successfully login', status: "success", isClosable: true });
+        navigation("/dashboard")
+        setLoading(false)
+      } catch (err) {
+        toast({ position: "top-right", title: "Login Failed", description: err.response.data.msg, status: "error", isClosable: true });
+        setLoading(false)
+      }
+      setLoading(false)
     },
   });
 
@@ -48,10 +54,10 @@ const Login = () => {
           <form onSubmit={formik.handleSubmit} className="py-1">
             <div className="textbox flex flex-col items-center gap-6">
               <input
-                {...formik.getFieldProps("username")}
+                {...formik.getFieldProps("email")}
                 className={styles.textbox}
                 type="text"
-                placeholder="State Code"
+                placeholder="Email"
               />
 
               <input
@@ -62,7 +68,7 @@ const Login = () => {
               />
 
               <button type="submit" className={styles.btn}>
-                Let's Go
+                {loading ? <Spinner size="md" /> : `Let's Go`}
               </button>
             </div>
 
