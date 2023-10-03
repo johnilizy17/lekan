@@ -27,7 +27,7 @@ export default function Dashboard() {
                         <Spinner size="xl" />
                     </Center>
                     :
-                    <Box h="100vh" overflow="scroll" pt="90px" backgroundColor="transparent">
+                    <Box h="100vh" overflow="scroll" pt="130px" backgroundColor="transparent">
                         <Header />
                         <Center flexDir='column' w="100vw">
                             {display ? <img src="./scanner.gif" style={{ width: 300, height: 300 }} /> : <Scanner ReportAdance={ReportAdance}/>}
