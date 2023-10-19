@@ -3,7 +3,7 @@ import React from "react";
 export default function Pages() {
 
     return (
-        <div style={{background:"#adb5bd", borderRadius:14, width:"100%"}}>
+        <div style={{ width:"100%"}}>
             <div class="d-flex justify-content-between m-gap py-3">
                 <h6 class="m-0">Attendance History</h6>
                 <button class="btn btn-primary">Mark Attendance</button>
@@ -49,7 +49,7 @@ export default function Pages() {
                     </tr>
                     <tr>
                         <td>General Meetings</td>
-                        <td class="text-sm-start">
+                        <td class="text-sm-start"  style={{textAlign:"start"}}>
                             This is our monthly general CDS <br />meetings at Surulere..
                         </td>
                         <td style={{ color: "#53389e" }}>Physical</td>
@@ -60,7 +60,7 @@ export default function Pages() {
                     </tr>
                     <tr>
                         <td>General Meetings</td>
-                        <td class="text-sm-start">
+                        <td class="text-sm-start"  style={{textAlign:"start"}}>
                             This is our monthly general CDS <br />meetings at Surulere..
                         </td>
                         <td>Virtual</td>
@@ -76,7 +76,7 @@ export default function Pages() {
                     </tr>
                     <tr>
                         <td>General Meetings</td>
-                        <td class="text-sm-start">
+                        <td class="text-sm-start"  style={{textAlign:"start"}}>
                             This is our monthly general CDS <br />
                             meetings at Surulere..
                         </td>
@@ -93,7 +93,7 @@ export default function Pages() {
                     </tr>
                     <tr>
                         <td>General Meetings</td>
-                        <td class="text-sm-start">
+                        <td class="text-sm-start"  style={{textAlign:"start"}}>
                             This is our monthly general CDS <br />
                             meetings at Surulere..
                         </td>
@@ -110,7 +110,7 @@ export default function Pages() {
                     </tr>
                     <tr>
                         <td>General Meetings</td>
-                        <td class="text-sm-start">
+                        <td class="text-sm-start"  style={{textAlign:"start"}}>
                             This is our monthly general CDS <br />
                             meetings at Surulere..
                         </td>
@@ -127,7 +127,7 @@ export default function Pages() {
                     </tr>
                     <tr>
                         <td>General Meetings</td>
-                        <td class="text-sm-start">
+                        <td class="text-sm-start"  style={{textAlign:"start"}}>
                             This is our monthly general CDS <br />
                             meetings at Surulere..
                         </td>
@@ -144,7 +144,7 @@ export default function Pages() {
                     </tr>
                     <tr>
                         <td>General Meetings</td>
-                        <td class="text-sm-start">
+                        <td class="text-sm-start"  style={{textAlign:"start"}}>
                             This is our monthly general CDS <br />
                             meetings at Surulere..
                         </td>
@@ -161,7 +161,7 @@ export default function Pages() {
                     </tr>
                     <tr>
                         <td>General Meetings</td>
-                        <td class="text-sm-start">
+                        <td class="text-sm-start"  style={{textAlign:"start"}}>
                             This is our monthly general CDS <br />
                             meetings at Surulere..
                         </td>
