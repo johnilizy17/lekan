@@ -8,6 +8,7 @@ import Password from "./components/Password";
 import PageNotFound from "./components/PageNotFound";
 import Dashboard from "./components/Dashboard";
 import Attendance from "./components/Attendance";
+import Password_Change from "./components/Password_Change";
 
 // ** root router ** //
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/password",
-    element: <Password></Password>,
+    element: <Password_Change></Password_Change>,
   },
   {
     path: "/profile",

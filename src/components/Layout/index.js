@@ -15,7 +15,7 @@ export default function Layout({ children }) {
                         <div class="sidebar" style={{ marginTop: -50 }}>
                             <ul class="sidebar-nav">
                                 <li>
-                                    <Link href="/index.html">
+                                    <Link to="/dashboard">
                                         <Center class="logout" justifyContent="start">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -39,7 +39,7 @@ export default function Layout({ children }) {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/history.html">
+                                    <Link to="/history.html">
                                         <Center justifyContent="start">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
@@ -56,7 +56,7 @@ export default function Layout({ children }) {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/profile.html">
+                                    <Link to="/profile">
                                         <Center justifyContent="start">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
@@ -70,7 +70,7 @@ export default function Layout({ children }) {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/password.html">
+                                    <Link to="/password">
                                         <Center justifyContent="start">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -85,7 +85,7 @@ export default function Layout({ children }) {
                                     </Link>
                                 </li>
                                 <li style={{ position: "absolute", bottom: 50 }}>
-                                    <Link href="/">
+                                    <Link to="/">
                                         <Center class="logout" bg="#fff4f4" w="250px" color="#cb1010" justifyContent="start">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                                                 <path
@@ -109,7 +109,7 @@ export default function Layout({ children }) {
                         <div class="topnav">
                             <div class="nav">
                                 <div class="nav-left d-flex align-items-center">
-                                    <Link href="#" id="toggleBar">
+                                    <Link to="#" id="toggleBar">
                                         <i class="fa fa-bars"></i>
                                     </Link>
 
@@ -132,7 +132,7 @@ export default function Layout({ children }) {
                                             <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><Link href="#" class="dropdown-item">Log Out</Link></li>
+                                            <li><Link to="#" class="dropdown-item">Log Out</Link></li>
                                         </ul>
                                     </div>
                                 </div>
