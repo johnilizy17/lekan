@@ -29,8 +29,8 @@ const Login = () => {
         navigation("/dashboard")
         setLoading(false)
       } catch (err) {
-        toast({ position: "top-right", title: "Login Failed", description: err.response.data.msg, status: "error", isClosable: true });
         setLoading(false)
+        toast({ position: "top-right", title: "Login Failed", description:err.message? err.message: err.response.data.msg, status: "error", isClosable: true });
       }
       setLoading(false)
     },

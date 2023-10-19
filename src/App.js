@@ -1,6 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-// ** Import All Components **  //
 import Login from "./views/public/login";
 import Reset from "./components/Reset";
 import Register from "./views/public/Register";
