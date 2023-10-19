@@ -9,6 +9,7 @@ import PageNotFound from "./components/PageNotFound";
 import Dashboard from "./components/Dashboard";
 import Attendance from "./components/Attendance";
 import Password_Change from "./components/Password_Change";
+import HomeDashboard from "./components/Home";
 
 // ** root router ** //
 const router = createBrowserRouter([
@@ -30,11 +31,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/attendance",
-    element: <Attendance/>,
+    element: <Dashboard/>,
   },
   {
     path: "/dashboard",
-    element: <Dashboard/>,
+    element: <HomeDashboard/>,
   },
   {
     path: "/recovery",
