@@ -39,7 +39,7 @@ export default function Layout({ children }) {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/history.html">
+                                    <Link to="/attendance">
                                         <Center justifyContent="start">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
@@ -104,7 +104,7 @@ export default function Layout({ children }) {
                             </ul>
                         </div>
                     </div>
-                    <Box w="300px" display={["none", "none", "none", "flex"]} />
+                    <Box w="300px" display={["none", "none", "flex"]} />
                     <div class="container-body" id="main-bd">
                         <div class="topnav">
                             <div class="nav">
