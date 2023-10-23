@@ -4,6 +4,21 @@ import { Link } from 'react-router-dom';
 
 export default function Layout({ children }) {
 
+    function SideBar(){
+    var bars = document.getElementById("toggleBar");
+        var sd = document.getElementById("sm-sidebar");
+        var mainbd = document.getElementById("main-bd");
+        var classList = sd.classList;
+        console.log(classList.contains("sm-sidebar"));
+        if (classList.contains("sm-sidebar")) {
+            mainbd.style.width = "calc(100% - 20em)";
+            sd.classList.remove("sm-sidebar");
+        } else {
+            mainbd.style.width = "100%";
+            sd.classList.add("sm-sidebar");
+        }
+        // console.log(classList[1]);
+}
     return (
         <>
             <body>
@@ -12,7 +27,7 @@ export default function Layout({ children }) {
                         <div class="logo-text">
                             <Box fontSize="24px" fontWeight="800">Doo-deel Logo</Box>
                         </div>
-                        <div class="sidebar" style={{ marginTop: -50 }}>
+                        <div class="sidebar">
                             <ul class="sidebar-nav">
                                 <li>
                                     <Link to="/dashboard">
@@ -108,7 +123,7 @@ export default function Layout({ children }) {
                     <div class="container-body" id="main-bd">
                         <div class="topnav">
                             <div class="nav">
-                                <div class="nav-left d-flex align-items-center">
+                                <div onClick={()=>SideBar()} class="nav-left d-flex align-items-center">
                                     <Link to="#" id="toggleBar">
                                         <i class="fa fa-bars"></i>
                                     </Link>
