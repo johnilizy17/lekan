@@ -27,7 +27,7 @@ export const Profileupdate = async (a) => {
 	instance()
 	const id = a._id
 	delete a._id
-	return authService.put(`user/profile`, a);
+	return authService.put(`user/${id}`, a);
 };
 
 export const AttendanceInformation = async () => {

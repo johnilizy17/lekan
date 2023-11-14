@@ -2,25 +2,32 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { ProfileInformation } from '../../services/user-services?user-services:""';
+import { Spinner, useToast } from '@chakra-ui/react';
+import { Profileupdate } from '../../services/user-services';
 
 export default function Profile_Component() {
 
     const [user, setUser] = useState({})
     const [loading, setLoading] = useState(false)
+    const toast = useToast()
     async function getUser() {
         const { data } = await ProfileInformation()
         console.log(data, 'users')
         setUser(data)
     }
 
-    async function updateUserProfile(){
-        try{
-            await Profileupdate()
+    async function updateUserProfile() {
+        try {
+            setLoading(true)
+            await Profileupdate(user)
+            console.log("fdjkd")
             toast({ position: "top-right", title: "Successful updated", description: 'Successfully updated details', status: "success", isClosable: true });
-        } catch{
+            await getUser()
+        } catch {
+            console.log("fdjkd")
             toast({ position: "top-right", title: "failed to update", description: 'failed to update', status: "error", isClosable: true });
-        
         }
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -28,7 +35,7 @@ export default function Profile_Component() {
     }, [])
 
     return (
-        <div class="password-section">
+        <div style={{marginTop:30}} class="password-section">
             <div class="password-settings">
                 <div class="password">
                     <div class="password-header">
@@ -86,7 +93,9 @@ export default function Profile_Component() {
                             value={user.primary ? user.primary : ""}
                         />
                     </form>
-                    <button class="password-btn mt-3">Update Changes</button>
+                    <button class="password-btn mt-3"
+                        onClick={() => { updateUserProfile() }}
+                    >{loading ? <Spinner /> : "Update Changes"}</button>
                 </div>
             </div>
         </div>
