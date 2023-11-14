@@ -23,6 +23,13 @@ export const ProfileInformation = async () => {
 	return authService.get(`user/profile`);
 };
 
+export const Profileupdate = async (a) => {
+	instance()
+	const id = a._id
+	delete a._id
+	return authService.put(`user/profile`, a);
+};
+
 export const AttendanceInformation = async () => {
 	instance()
 	return authService.get(`reports`);
