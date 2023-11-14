@@ -157,7 +157,7 @@ export default function Layout({ children }) {
                                         <button class="btn btn-default dropdown-toggle dropdown-toggle-split" type="button" id="mybyn"
                                             data-bs-toggle="dropdown" aria-expanded="false">
 
-                                            <span style={{ marginRight: 10 }}> {user.firstname}, {user.lastname}</span>
+                                            <span style={{ marginRight: 10 }}>{user.lastname}</span>
                                             <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">

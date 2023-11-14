@@ -35,7 +35,7 @@ export default function Profile_Component() {
     }, [])
 
     return (
-        <div style={{marginTop:30}} class="password-section">
+        <div style={{marginTop:70}} class="password-section">
             <div class="password-settings">
                 <div class="password">
                     <div class="password-header">
