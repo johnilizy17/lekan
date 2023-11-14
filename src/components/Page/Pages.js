@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AttendanceInformation, AttendanceUser } from "../../services/user-services";
+import Moment from "react-moment";
 
 export default function Pages() {
 
@@ -66,7 +67,7 @@ export default function Pages() {
                         <tr>
                             <td>General Meetings</td>
                             <td style={{ color: "#53389e" }}>Physical</td>
-                            <td>{a.createdAt}</td>
+                            <td><Moment format="YYYY/MM/DD">{a.createdAt}</Moment></td>
                             <td>
                                 {
                                     localStorage.getItem(a._id) ?
