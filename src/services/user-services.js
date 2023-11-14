@@ -1,10 +1,9 @@
 import { authService } from "../utils/auth";
 
 
-async function instance(e: string) {
-	if (e) {
-		authService.defaults.headers.common["Authorization"] = `Bearer ${e}`;
-	}
+async function instance() {
+	const token = localStorage.getItem("token")
+	authService.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 }
 
 export const RegisterUser = async (data) => {
@@ -17,6 +16,21 @@ export const LoginUser = async (data) => {
 
 export const RegisterReferral = async (data) => {
 	return authService.post(`users/referral`, data);
+};
+
+export const ProfileInformation = async () => {
+	instance()
+	return authService.get(`user/profile`);
+};
+
+export const AttendanceInformation = async () => {
+	instance()
+	return authService.get(`reports`);
+};
+
+export const AttendanceUser = async () => {
+	instance()
+	return authService.get(`user_reports/user/user_reports`);
 };
 
 export const getChat = async (id) => {

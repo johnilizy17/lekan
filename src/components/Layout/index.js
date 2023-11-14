@@ -1,11 +1,22 @@
 import { Box, Button, Flex, Menu, MenuButton, MenuItem, MenuList, Toast, useToast, Center, Divider, IconButton, Img, Slide, Text, useDisclosure } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ProfileInformation } from '../../services/user-services';
 
 export default function Layout({ children }) {
 
     const { isOpen, onToggle } = useDisclosure();
-    
+    const [user, setUser] = useState({})
+
+    async function getUser() {
+        const { data } = await ProfileInformation()
+        setUser(data)
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
 
     function SideBar() {
         var bars = document.getElementById("toggleBar");
@@ -131,7 +142,7 @@ export default function Layout({ children }) {
                                         <i class="fa fa-bars"></i>
                                     </Link>
 
-                                    <span class="top-text">LA/22C/0001</span>
+                                    <span class="top-text">{user.code ? user.code : "LA/22C/0001"}</span>
                                 </div>
                                 <div class="topbar">
                                     <div class="svg-wrap">
@@ -146,11 +157,11 @@ export default function Layout({ children }) {
                                         <button class="btn btn-default dropdown-toggle dropdown-toggle-split" type="button" id="mybyn"
                                             data-bs-toggle="dropdown" aria-expanded="false">
 
-                                            <span style={{ marginRight: 10 }}> John Doe</span>
+                                            <span style={{ marginRight: 10 }}> {user.firstname}, {user.lastname}</span>
                                             <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><Link to="#" class="dropdown-item">Log Out</Link></li>
+                                            <li><Link to="/" class="dropdown-item">Log Out</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -163,16 +174,22 @@ export default function Layout({ children }) {
                         >
                             <Flex>
                                 <Flex
-                                    pt="40px"
+                                    pt="80px"
                                     pb="40px"
                                     bg="#fff"
                                     h="100vh"
                                     justify="start"
                                     direction="column"
                                     pos="relative"
-                                    width="300px"
+                                    width="340px"
                                     align="start"
                                 >
+
+                                    <IconButton pos="absolute" top="20px" right="20px" onClick={onToggle}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                        </svg>
+                                    </IconButton>
                                     <div class="sidebar">
                                         <ul class="sidebar-nav">
                                             <li>
@@ -265,9 +282,6 @@ export default function Layout({ children }) {
                                         </ul>
                                     </div>
                                 </Flex>
-                                <Box w="100%" h="100vh" onClick={onToggle} background="transparent" onFocus={{ background: "transparent" }}>
-
-                                </Box>
                             </Flex>
                         </Slide>
 

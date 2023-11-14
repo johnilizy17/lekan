@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { AttendanceInformation, AttendanceUser } from "../../services/user-services";
 
 export default function Pages() {
 
+    const [report, setReport] = useState({ all: { reports: [] }, current: [] });
+
+    async function Attendance() {
+        const { data } = await AttendanceInformation();
+        const current = await AttendanceUser()
+        setReport({ all: data, current: current.data })
+        current.data.map((a, b) => {
+            localStorage.setItem(a._id, a._id)
+        })
+    }
+
+    useEffect(() => {
+        Attendance()
+    }, [])
+
     return (
-        <div style={{ width:"100%"}}>
+        <div style={{ width: "100%", paddingBottom:40}}>
             <div class="d-flex justify-content-between m-gap py-3">
                 <h6 class="m-0">Attendance History</h6>
                 <button class="btn btn-primary">Mark Attendance</button>
@@ -13,7 +29,7 @@ export default function Pages() {
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h2 style={{ fontWeight: "bold", fontSize: 50 }}>10</h2>
+                                <h2 style={{ fontWeight: "bold", fontSize: 50 }}>{report.all.reports ? report.all.reports.length : 0}</h2>
                                 <small>Total no. of Attendance</small>
                             </div>
                         </div>
@@ -22,7 +38,7 @@ export default function Pages() {
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h2 style={{ color: "#008000", fontWeight: "bold", fontSize: 50 }}>08</h2>
+                                <h2 style={{ color: "#008000", fontWeight: "bold", fontSize: 50 }}>{report.current ? report.current.length : 0}</h2>
                                 <small>No. of days present</small>
                             </div>
                         </div>
@@ -31,7 +47,7 @@ export default function Pages() {
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h2 style={{ color: "red", fontWeight: "bold", fontSize: 50 }}>02</h2>
+                                <h2 style={{ color: "red", fontWeight: "bold", fontSize: 50 }}>{report.all.reports && report.current ? report.all.reports.length - report.current.length : 0}</h2>
                                 <small>No. of days absent</small>
                             </div>
                         </div>
@@ -42,140 +58,30 @@ export default function Pages() {
                 <table class="table">
                     <tr>
                         <th>Event Name</th>
-                        <th>Description</th>
                         <th>Event type</th>
                         <th>Date</th>
                         <th>Status</th>
                     </tr>
-                    <tr>
-                        <td>General Meetings</td>
-                        <td class="text-sm-start"  style={{textAlign:"start"}}>
-                            This is our monthly general CDS <br />meetings at Surulere..
-                        </td>
-                        <td style={{ color: "#53389e" }}>Physical</td>
-                        <td>27-08-2023</td>
-                        <td>
-                            <span class="span-text" style={{ color: "#008000", background: "#f5fff5", borderRadius: "10px" }}>Present</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>General Meetings</td>
-                        <td class="text-sm-start"  style={{textAlign:"start"}}>
-                            This is our monthly general CDS <br />meetings at Surulere..
-                        </td>
-                        <td>Virtual</td>
-                        <td>27-08-2023</td>
-                        <td>
-                            <span class="span-text" style={{
-                                color: "#cb1010",
-                                background: "#ffefef",
-                                borderRadius: "10px"
-                            }}
-                            >Absent</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>General Meetings</td>
-                        <td class="text-sm-start"  style={{textAlign:"start"}}>
-                            This is our monthly general CDS <br />
-                            meetings at Surulere..
-                        </td>
-                        <td style={{ color: "#53389e" }}>Physical</td>
-                        <td>27-08-2023</td>
-                        <td>
-                            <span class="span-text" style={{
-                                color: '#008000',
-                                background: "#f5fff5",
-                                borderRadius: "10px"
-                            }}
-                            >Present</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>General Meetings</td>
-                        <td class="text-sm-start"  style={{textAlign:"start"}}>
-                            This is our monthly general CDS <br />
-                            meetings at Surulere..
-                        </td>
-                        <td>Virtual</td>
-                        <td>27-08-2023</td>
-                        <td>
-                            <span class="span-text" style={{
-                                color: '#008000',
-                                background: "#f5fff5",
-                                borderRadius: "10px"
-                            }}
-                            >Present</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>General Meetings</td>
-                        <td class="text-sm-start"  style={{textAlign:"start"}}>
-                            This is our monthly general CDS <br />
-                            meetings at Surulere..
-                        </td>
-                        <td>Virtual</td>
-                        <td>27-08-2023</td>
-                        <td>
-                            <span class="span-text" style={{
-                                color: "#cb1010",
-                                background: "#ffefef",
-                                borderRadius: "10px"
-                            }}
-                            >Absent</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>General Meetings</td>
-                        <td class="text-sm-start"  style={{textAlign:"start"}}>
-                            This is our monthly general CDS <br />
-                            meetings at Surulere..
-                        </td>
-                        <td style={{ color: "#53389e" }}>Physical</td>
-                        <td>27-08-2023</td>
-                        <td>
-                            <span class="span-text" style={{
-                                color: '#008000',
-                                background: "#f5fff5",
-                                borderRadius: "10px"
-                            }}
-                            >Present</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>General Meetings</td>
-                        <td class="text-sm-start"  style={{textAlign:"start"}}>
-                            This is our monthly general CDS <br />
-                            meetings at Surulere..
-                        </td>
-                        <td>Virtual</td>
-                        <td>27-08-2023</td>
-                        <td>
-                            <span class="span-text" style={{
-                                color: '#008000',
-                                background: "#f5fff5",
-                                borderRadius: "10px"
-                            }}
-                            >Present</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>General Meetings</td>
-                        <td class="text-sm-start"  style={{textAlign:"start"}}>
-                            This is our monthly general CDS <br />
-                            meetings at Surulere..
-                        </td>
-                        <td>Virtual</td>
-                        <td>27-08-2023</td>
-                        <td>
-                            <span class="span-text" style={{
-                                color: '#008000',
-                                background: "#f5fff5",
-                                borderRadius: "10px"
-                            }}
-                            >Present</span>
-                        </td>
-                    </tr>
+                    {report.all.reports.map((a, b) => (
+                        <tr>
+                            <td>General Meetings</td>
+                            <td style={{ color: "#53389e" }}>Physical</td>
+                            <td>{a.createdAt}</td>
+                            <td>
+                                {
+                                    localStorage.getItem(a._id) ?
+                                        <span class="span-text" style={{ color: "#008000", background: "#f5fff5", borderRadius: "10px" }}>Present</span>
+                                        :
+                                        <span class="span-text" style={{
+                                            color: "#cb1010",
+                                            background: "#ffefef",
+                                            borderRadius: "10px"
+                                        }}
+                                        >Absent</span>
+                                }
+                            </td>
+                        </tr>
+                    ))}
                 </table>
             </div>
         </div>
